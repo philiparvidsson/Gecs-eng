@@ -9,4 +9,4 @@ Game using Gecs
 Pong.
 -----
 
-.. image:: assets/images/Pong-Pong-888x376.png
+.. image:: assets/images/Pong-888x376.png
