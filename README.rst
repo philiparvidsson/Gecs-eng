@@ -1,7 +1,7 @@
 What is PrimusGE?
 #################
 
-PrimusGE is a game engine that originated from the development the game `Pong. <https://github.com/philiparvidsson/Pong>`_. It provides a carefully designed ECS (Entity–Component–System) game framework.
+PrimusGE is a game engine that originated from the development of the game `Pong. <https://github.com/philiparvidsson/Pong>`_. It provides a carefully designed ECS (Entity–Component–System) game framework.
 
 *more info to come later!*
 
