@@ -28,9 +28,16 @@ conf = { 'name': 'PrimusGE.dll',
                    'SharpDX.XAudio2.dll',
                    'SharpDX.dll' ] }
 
-@default_target(conf=csc.conf)
-@depends_on('compile')
+@default_target(depends=[ 'compile', 'content', 'libs' ])
 def all(conf):
     pass
+
+@target(conf=csc.conf)
+def content(conf):
+    copy(r'assets\Content', conf.bindir + r'\Content')
+
+@target(conf=csc.conf)
+def libs(conf):
+    copy(r'lib\SharpDX', conf.bindir, '*.dll')
 
 pymake2(conf)

@@ -67,7 +67,7 @@ public class Game {
     public Form Window {
         get { return m_Window; }
     }
-    
+
     /*-------------------------------------
      * CONSTRUCTORS
      *-----------------------------------*/
@@ -199,7 +199,7 @@ public class Game {
                       string       title,
                       int          width,
                       int          height)
-    {        
+    {
         m_Window = CreateWindow(title, width, height);
 
         graphics.Init(m_Window);
