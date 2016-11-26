@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Components.Physical {
+﻿namespace PrimusGE.Components.Physical {
 
 /*-------------------------------------
  * USINGS

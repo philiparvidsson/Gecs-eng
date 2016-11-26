@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Math.Geom {
+﻿namespace PrimusGE.Math.Geom {
 
 /*-------------------------------------
  * USINGS

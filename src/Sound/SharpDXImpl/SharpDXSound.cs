@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Sound.SharpDXImpl {
+﻿namespace PrimusGE.Sound.SharpDXImpl {
 
 /*-------------------------------------
  * USINGS

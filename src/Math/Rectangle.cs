@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Math {
+﻿namespace PrimusGE.Math {
 
 /*-------------------------------------
  * CLASSES

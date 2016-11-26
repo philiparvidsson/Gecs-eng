@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Messages {
+﻿namespace PrimusGE.Messages {
 
 /*-------------------------------------
  * USINGS

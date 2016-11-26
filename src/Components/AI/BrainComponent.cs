@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Components.AI {
+﻿namespace PrimusGE.Components.AI {
     
 /*-------------------------------------
  * USINGS

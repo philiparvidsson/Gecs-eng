@@ -1,11 +1,11 @@
-What is Gecs?
-#############
+What is PrimusGE?
+#################
 
-Gecs (*Good Entity—Component—System*) is a game engine that originated in the development the game `Pong. <https://github.com/philiparvidsson/Pong>`_.
+PrimusGE is a game engine that originated from the development the game `Pong. <https://github.com/philiparvidsson/Pong>`_. It provides a carefully designed ECS (Entity–Component–System) game framework.
 
-Games using Gecs
-================
+*more info to come later!*
+
+Games using PrimusGE
+====================
 
 .. image:: assets/images/Pong-888x376.png
-
-*more to come!*

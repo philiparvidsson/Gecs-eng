@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Components.Input {
+﻿namespace PrimusGE.Components.Input {
     
 /*-------------------------------------
  * USINGS

@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Graphics {
+﻿namespace PrimusGE.Graphics {
 
 /*-------------------------------------
  * USINGS

@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Components {
+﻿namespace PrimusGE.Components {
     
 /*-------------------------------------
  * USINGS

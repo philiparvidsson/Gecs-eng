@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Input {
+﻿namespace PrimusGE.Input {
 
 /*-------------------------------------
  * ENUMS

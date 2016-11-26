@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Sound {
+﻿namespace PrimusGE.Sound {
 
 /*-------------------------------------
  * INTERFACES

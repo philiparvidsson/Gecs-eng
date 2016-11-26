@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.join('build', 'pymake2'))
 from pymake2 import *
 from pymake2.template.csharp import csc
 
-conf = { 'name': 'GecsEng.dll',
+conf = { 'name': 'PrimusGE.dll',
 
          'flags': ['/nologo',
                    #'/debug',

@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Math.Calc {
+﻿namespace PrimusGE.Math.Calc {
 
 /*-------------------------------------
  * INTERFACES

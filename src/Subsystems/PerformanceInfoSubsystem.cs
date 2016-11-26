@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Subsystems {
+﻿namespace PrimusGE.Subsystems {
 
 /*-------------------------------------
  * USINGS

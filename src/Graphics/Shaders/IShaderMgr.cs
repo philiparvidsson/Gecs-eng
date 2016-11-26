@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Graphics.Shaders {
+﻿namespace PrimusGE.Graphics.Shaders {
 
 /*-------------------------------------
  * USINGS

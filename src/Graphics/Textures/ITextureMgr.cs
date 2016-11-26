@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Graphics.Textures {
+﻿namespace PrimusGE.Graphics.Textures {
 
 /*-------------------------------------
  * INTERFACES

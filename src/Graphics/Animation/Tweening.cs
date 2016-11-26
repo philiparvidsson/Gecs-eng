@@ -1,4 +1,4 @@
-﻿namespace GecsEng.Graphics.Animation {
+﻿namespace PrimusGE.Graphics.Animation {
 
 /*-------------------------------------
  * USINGS
