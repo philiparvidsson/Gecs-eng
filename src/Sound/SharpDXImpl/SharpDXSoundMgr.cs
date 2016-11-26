@@ -15,7 +15,7 @@ using SharpDX.XAudio2;
  * CLASSES
  *-----------------------------------*/
 
-internal class SharpDXSoundMgr: ISoundMgr {
+public class SharpDXSoundMgr: ISoundMgr {
     /*-------------------------------------
      * NON-PUBLIC FIELDS
      *-----------------------------------*/
