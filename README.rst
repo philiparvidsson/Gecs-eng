@@ -7,6 +7,6 @@ Game using Gecs
 ===============
 
 Pong.
------
+~~~~~
 
 .. image:: assets/images/Pong-888x376.png
