@@ -8,4 +8,4 @@ PrimusGE is a game engine that originated from the development the game `Pong. <
 Games using PrimusGE
 ====================
 
-.. image:: assets/images/Pong-888x376.png
+.. image:: assets/Images/Pong-888x376.png
