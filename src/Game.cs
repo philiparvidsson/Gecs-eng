@@ -1,4 +1,4 @@
-namespace PrimusGE.Core {
+namespace PrimusGE {
 
 /*-------------------------------------
  * USINGS
@@ -12,6 +12,7 @@ using System.Threading;
 using System.Windows.Forms;
 
 using Components;
+using Core;
 using Graphics;
 using Sound;
 
