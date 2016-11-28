@@ -22,7 +22,7 @@ internal class SharpDXShaderMgr: IDisposable, IShaderMgr {
 #if DEBUG
         private const ShaderFlags DEBUG_FLAG = ShaderFlags.Debug;
 #else
-        private const ShaderFlags DEBUG_FLAG = ShaderFlags.None;
+        private const ShaderFlags DEBUG_FLAG = ShaderFlags.OptimizationLevel3;
 #endif
 
     /*-------------------------------------
