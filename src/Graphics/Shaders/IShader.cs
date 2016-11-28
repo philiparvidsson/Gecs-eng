@@ -4,13 +4,15 @@
  * USINGS
  *-----------------------------------*/
 
+using System;
+
 using Textures;
 
 /*-------------------------------------
  * INTERFACES
  *-----------------------------------*/
 
-public interface IShader {
+public interface IShader: IDisposable {
     /*-------------------------------------
      * METHODS
      *-----------------------------------*/

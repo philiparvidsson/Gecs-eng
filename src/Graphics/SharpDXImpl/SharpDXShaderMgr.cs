@@ -25,11 +25,11 @@ internal class SharpDXShaderMgr: IDisposable, IShaderMgr {
         private const ShaderFlags DEBUG_FLAG = ShaderFlags.None;
 #endif
 
-        /*-------------------------------------
-         * PUBLIC FIELDS
-         *-----------------------------------*/
+    /*-------------------------------------
+     * PUBLIC FIELDS
+     *-----------------------------------*/
 
-        public SharpDXGraphicsMgr Graphics;
+    public SharpDXGraphicsMgr Graphics;
 
     /*-------------------------------------
      * NON-PUBLIC FIELDS
@@ -60,6 +60,10 @@ internal class SharpDXShaderMgr: IDisposable, IShaderMgr {
 
     public IShader LoadPS(string path, Type constantsType=null) {
         using (var byteCode = ShaderBytecode.CompileFromFile(path, "main", "ps_5_0", DEBUG_FLAG)) {
+            if (byteCode.Bytecode == null) {
+                throw new Exception(byteCode.Message);
+            }
+
             var gpuShader = new D3D11.PixelShader(Graphics.Device, byteCode);
 
             var shader = new SharpDXShader(Graphics, gpuShader, null, constantsType);
@@ -76,6 +80,10 @@ internal class SharpDXShaderMgr: IDisposable, IShaderMgr {
 
     public IShader LoadVS(string path, Type constantsType=null) {
         using (var byteCode = ShaderBytecode.CompileFromFile(path, "main", "vs_5_0", DEBUG_FLAG)) {
+            if (byteCode.Bytecode == null) {
+                throw new Exception(byteCode.Message);
+            }
+
             var gpuShader = new D3D11.VertexShader(Graphics.Device, byteCode);
 
             var inputElements = new D3D11.InputElement[] {
