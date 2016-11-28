@@ -59,12 +59,12 @@ internal class SharpDXShaderMgr: IDisposable, IShaderMgr {
     }
 
     public IShader LoadPS(string path, Type constantsType=null) {
-        using (var byteCode = ShaderBytecode.CompileFromFile(path, "main", "ps_5_0", DEBUG_FLAG)) {
-            if (byteCode.Bytecode == null) {
-                throw new Exception(byteCode.Message);
+        using (var cr = ShaderBytecode.CompileFromFile(path, "main", "ps_5_0", DEBUG_FLAG)) {
+            if (cr.Bytecode == null) {
+                throw new Exception(cr.Message);
             }
 
-            var gpuShader = new D3D11.PixelShader(Graphics.Device, byteCode);
+            var gpuShader = new D3D11.PixelShader(Graphics.Device, cr);
 
             var shader = new SharpDXShader(Graphics, gpuShader, null, constantsType);
 
@@ -79,19 +79,19 @@ internal class SharpDXShaderMgr: IDisposable, IShaderMgr {
     }
 
     public IShader LoadVS(string path, Type constantsType=null) {
-        using (var byteCode = ShaderBytecode.CompileFromFile(path, "main", "vs_5_0", DEBUG_FLAG)) {
-            if (byteCode.Bytecode == null) {
-                throw new Exception(byteCode.Message);
+        using (var cr = ShaderBytecode.CompileFromFile(path, "main", "vs_5_0", DEBUG_FLAG)) {
+            if (cr.Bytecode == null) {
+                throw new Exception(cr.Message);
             }
 
-            var gpuShader = new D3D11.VertexShader(Graphics.Device, byteCode);
+            var gpuShader = new D3D11.VertexShader(Graphics.Device, cr);
 
             var inputElements = new D3D11.InputElement[] {
                 new D3D11.InputElement("POSITION", 0, Format.R32G32B32A32_Float,  0, 0),
                 new D3D11.InputElement("TEXCOORD", 0, Format.R32G32_Float      , 16, 0)
             };
 
-            var inputSignature = ShaderSignature.GetInputSignature(byteCode);
+            var inputSignature = ShaderSignature.GetInputSignature(cr);
             var inputLayout = new D3D11.InputLayout(Graphics.Device, inputSignature, inputElements);
 
             var shader = new SharpDXShader(Graphics, gpuShader, inputLayout, constantsType);
