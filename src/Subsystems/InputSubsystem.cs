@@ -20,7 +20,7 @@ public class InputSubsystem: Subsystem {
     public override void Draw(float dt) {
         base.Draw(dt);
 
-        var keyboard = new Keyboard();
+        var keyboard = Game.Inst.Keyboard;
 
         var entities = Game.Inst.Scene.GetEntities<InputComponent>();
         foreach (var entity in entities) {

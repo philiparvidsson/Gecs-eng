@@ -14,6 +14,8 @@ using System.Windows.Forms;
 using Components;
 using Core;
 using Graphics;
+using Input;
+using Input.DefaultImpl;
 using Sound;
 
 /*-------------------------------------
@@ -51,18 +53,20 @@ public class Game {
      * PUBLIC PROPERTIES
      *-----------------------------------*/
 
-    public ISoundMgr Sound {
-        get { return m_Sound; }
-    }
-
     public IGraphicsMgr Graphics {
         get { return m_Graphics; }
     }
 
     public static Game Inst { get; } = new Game();
 
+    public IKeyboard Keyboard { get; set; } = new DefaultKeyboard();
+
     public Scene Scene {
         get { return m_Scene; }
+    }
+
+    public ISoundMgr Sound {
+        get { return m_Sound; }
     }
 
     public Form Window {
@@ -205,6 +209,7 @@ public class Game {
 
         graphics.Init(m_Window);
         sound.Init();
+
         m_Graphics = graphics;
         m_Sound    = sound;
     }
@@ -212,6 +217,9 @@ public class Game {
     private void Cleanup() {
         m_Graphics.Cleanup();
         m_Graphics = null;
+
+        m_Sound.Cleanup();
+        m_Sound = null;
 
         m_Window.Close();
         m_Window.Dispose();

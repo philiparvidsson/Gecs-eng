@@ -5,7 +5,16 @@
  *-----------------------------------*/
 
 public enum Key {
-    Down, Up, Q, E
+    A,
+    D,
+    Down,
+    E,
+    Left,
+    Q,
+    Right,
+    S,
+    Up,
+    W
 }
 
 }
