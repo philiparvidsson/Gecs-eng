@@ -68,7 +68,7 @@ public class SharpDXGraphicsMgr: IGraphicsMgr {
         get { return m_DefaultVertexShader; }
     }
 
-    public bool IsEnabled { get; set; }
+    public bool IsLagging { get; set; }
 
     public string Name {
         get { return "SharpDX"; }
@@ -237,7 +237,7 @@ public class SharpDXGraphicsMgr: IGraphicsMgr {
     }
 
     public void EndFrame() {
-        if (IsEnabled) {
+        if (!IsLagging) {
             m_SwapChain.Present(1, PresentFlags.DoNotWait);
         }
     }

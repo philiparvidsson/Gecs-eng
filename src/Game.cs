@@ -162,7 +162,7 @@ public class Game {
                 }
 
                 if (t2 >= INV_DRAWS_PER_SEC) {
-                    Graphics.IsEnabled = t1 < INV_DRAWS_PER_SEC;
+                    Graphics.IsLagging = t1 >= INV_DRAWS_PER_SEC;
 
                     m_Scene.Draw((float)INV_DRAWS_PER_SEC);
                     t2 -= INV_DRAWS_PER_SEC;

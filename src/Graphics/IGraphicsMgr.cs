@@ -23,7 +23,7 @@ public interface IGraphicsMgr {
 
     IShader DefaultVertexShader { get; }
 
-    bool IsEnabled { get; set; }
+    bool IsLagging { get; set; }
 
     string Name { get; }
 
