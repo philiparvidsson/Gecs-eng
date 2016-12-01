@@ -31,14 +31,15 @@ public class PerformanceInfoSubsystem: Subsystem {
 
     public override void Cleanup() {
         base.Cleanup();
-        
+
         Game.Inst.Window.Text = m_Text;
     }
 
     public override void Draw(float dt) {
         base.Draw(dt);
 
-        m_NumDraws++;
+        if (!Game.Inst.Graphics.IsLagging)
+            m_NumDraws++;
 
         if (m_Stopwatch.Elapsed.TotalSeconds >= 1.0) {
             Game.Inst.Window.Text = string.Format("{0} ({1}, {2} draws/s, {3} updates/s, {4} entities)", m_Text, Game.Inst.Graphics.Name, m_NumDraws, m_NumUpdates, Game.Inst.Scene.Entities.Count);
@@ -52,7 +53,7 @@ public class PerformanceInfoSubsystem: Subsystem {
 
     public override void Init() {
         base.Init();
-        
+
         m_Stopwatch = Stopwatch.StartNew();
         m_Text      = Game.Inst.Window.Text;
     }

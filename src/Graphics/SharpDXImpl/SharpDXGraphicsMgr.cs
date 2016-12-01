@@ -38,6 +38,8 @@ public class SharpDXGraphicsMgr: IGraphicsMgr {
 
     private D3D11.DeviceContext m_DeviceContext;
 
+    private int m_NumSamples;
+
     private SharpDXShader m_PixelShader;
 
     private SharpDXRenderTarget m_RenderTarget;
@@ -147,6 +149,14 @@ public class SharpDXGraphicsMgr: IGraphicsMgr {
     }
 
     /*-------------------------------------
+     * CONSTRUCTORS
+     *-----------------------------------*/
+
+    public SharpDXGraphicsMgr(int numSamples=1) {
+        m_NumSamples = numSamples;
+    }
+
+    /*-------------------------------------
      * PUBLIC METHODS
      *-----------------------------------*/
 
@@ -196,7 +206,7 @@ public class SharpDXGraphicsMgr: IGraphicsMgr {
             BindFlags         = D3D11.BindFlags.RenderTarget | D3D11.BindFlags.ShaderResource,
             Format            = Format.R16G16B16A16_Float,
             MipLevels         = 1,
-            SampleDescription = new SampleDescription(8, 0),
+            SampleDescription = new SampleDescription(m_NumSamples, 0),
             Width             = width,
             Height            = height,
         };
@@ -245,7 +255,7 @@ public class SharpDXGraphicsMgr: IGraphicsMgr {
     public void Init(Form window) {
         m_Window = window;
 
-        InitDevice();
+        InitDevice(m_NumSamples);
         InitShaders();
 
         m_TextureMgr = new SharpDXTextureMgr(this);
@@ -264,7 +274,7 @@ public class SharpDXGraphicsMgr: IGraphicsMgr {
      * NON-PUBLIC METHODS
      *-----------------------------------*/
 
-    private int GetBestQuality() {
+    private int GetBestQuality(int numSamples) {
         var width  = m_Window.ClientRectangle.Width;
         var height = m_Window.ClientRectangle.Height;
 
@@ -284,27 +294,32 @@ public class SharpDXGraphicsMgr: IGraphicsMgr {
         SwapChain swapChain;
         D3D11.Device.CreateWithSwapChain(DriverType.Hardware, D3D11.DeviceCreationFlags.SingleThreaded, swapChainDescription, out device, out swapChain);
 
-        var quality = device.CheckMultisampleQualityLevels(modeDescription.Format, 8);
+        var quality = device.CheckMultisampleQualityLevels(modeDescription.Format, numSamples);
         swapChain.Dispose();
         device.Dispose();
 
-        return quality-1;
+        quality--;
+        if (quality < 0) {
+            quality = 0;
+        }
+
+        return quality;
     }
 
-    private void InitDevice() {
+    private void InitDevice(int numSamples) {
         var width  = m_Window.ClientRectangle.Width;
         var height = m_Window.ClientRectangle.Height;
 
         var refreshRate = new Rational(60, 1);
         var modeDesc = new ModeDescription(width, height, refreshRate, Format.R8G8B8A8_UNorm);
 
-        var quality = GetBestQuality();
+        var quality = GetBestQuality(numSamples);
 
         var swapChainDesc = new SwapChainDescription() {
             BufferCount       = 1,
             IsWindowed        = true,
             ModeDescription   = modeDesc,
-            SampleDescription = new SampleDescription(8, quality),
+            SampleDescription = new SampleDescription(numSamples, quality),
             OutputHandle      = Game.Inst.Window.Handle,
             Usage             = Usage.RenderTargetOutput
         };
